@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -38,7 +39,19 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun operatorClicked(view : View){
+        val operatorString = (view as? Button)?.text?.toString() ?: ""
 
+        if(firstNumberText.isEmpty()){
+            Toast.makeText(this, "숫자를 먼저 입력해주세요",Toast.LENGTH_SHORT).show()
+            return
+        }
+        if(secondNumberText.isNotEmpty()){
+            Toast.makeText(this, "1개의 현산자에 대해서만 현산이 가능합니다.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        operatorText.append(operatorString)
+        updateEquationTextView()
     }
 
     private fun updateEquationTextView(){
