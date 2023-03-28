@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         operatorText.clear()
 
         updateEquationTextView()
+        resultTextView.text = ""
     }
     fun equalClicked(view : View){
         if(firstNumberText.isEmpty() || secondNumberText.isEmpty() || operatorText.isEmpty()){
