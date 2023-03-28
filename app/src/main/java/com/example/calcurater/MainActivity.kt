@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +21,11 @@ class MainActivity : AppCompatActivity() {
 
     // 메인.xml에서 직접 onCLick을 사용한 버튼을 구현하기 위한 함수 선언.
     fun numberClicked(view : View){
-        Log.d("numberClicked","one")
+        val numberString = (view as? Button)?.text?.toString() ?: ""
+        val numberText = if(operatorText.isEmpty())firstNumberText else secondNumberText
+
+        numberText.append(numberString)
+        updateEquationTextView()
     }
     fun clearClicked(view : View){
 
@@ -28,6 +34,11 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun operatorClicked(view : View){
+
+    }
+
+    private fun updateEquationTextView(){
+        equationTextView.text = "$firstNumberText $operatorText $secondNumberText"
 
     }
 }
