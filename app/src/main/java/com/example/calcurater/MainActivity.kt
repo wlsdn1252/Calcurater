@@ -2,6 +2,8 @@ package com.example.calcurater
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,5 +15,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+
+    // 메인.xml에서 직접 onCLick을 사용한 버튼을 구현하기 위한 함수 선언.
+    fun numberClicked(view : View){
+        Log.d("numberClicked","one")
+    }
+    fun clearClicked(view : View){
+
+    }
+    fun equalClicked(view : View){
+
+    }
+    fun operatorClicked(view : View){
+
     }
 }
