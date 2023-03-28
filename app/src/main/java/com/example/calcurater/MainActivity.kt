@@ -28,7 +28,11 @@ class MainActivity : AppCompatActivity() {
         updateEquationTextView()
     }
     fun clearClicked(view : View){
+        firstNumberText.clear()
+        secondNumberText.clear()
+        operatorText.clear()
 
+        updateEquationTextView()
     }
     fun equalClicked(view : View){
 
