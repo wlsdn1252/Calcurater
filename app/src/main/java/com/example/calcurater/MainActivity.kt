@@ -36,7 +36,20 @@ class MainActivity : AppCompatActivity() {
         updateEquationTextView()
     }
     fun equalClicked(view : View){
+        if(firstNumberText.isEmpty() || secondNumberText.isEmpty() || operatorText.isEmpty()){
+            Toast.makeText(this, "올바르지 않은 수식입니다.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        val firstNumber = firstNumberText.toString().toInt()
+        val secondNumber = secondNumberText.toString().toInt()
 
+        val result = when(operatorText.toString()){
+            "+" -> firstNumber + secondNumber
+            "-" -> firstNumber - secondNumber
+            else -> "잘못된 수식 입니다."
+        }.toString()
+
+        resultTextView.text = result
     }
     fun operatorClicked(view : View){
         val operatorString = (view as? Button)?.text?.toString() ?: ""
